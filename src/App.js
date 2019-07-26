@@ -1,5 +1,5 @@
 import React from 'react'
-import { MaryDebet } from "./MaryDebet";
+import { MaryDebet } from "./components/MaryDebet";
 import "bootstrap/dist/css/bootstrap.min.css"
 import './App.css'
 

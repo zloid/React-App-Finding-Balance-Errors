@@ -1,2 +1,2 @@
-# React-App-Finding-Balance-Errors
-App for finding errors in the account balance v0.1.0
+# React-App-Finding-Balance-Errors v0.1.10
+App for finding errors in the account balance 
