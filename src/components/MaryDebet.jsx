@@ -6,6 +6,7 @@ import {
   Button,
   OverlayTrigger,
   Tooltip,
+  Badge,
 } from 'react-bootstrap'
 
 import {
@@ -105,25 +106,25 @@ export class MaryDebet extends Component {
   }
 
   getResult() {
-      window.scrollTo(0, 0)
-      
-      const dataFromTextareaOne = this.state.textareaOne
-      const arrayFromTextareaOne = dataFromTextareaOne
+    window.scrollTo(0, 0)
+
+    const dataFromTextareaOne = this.state.textareaOne
+    const arrayFromTextareaOne = dataFromTextareaOne
       .split('\n')
       .filter(e => e !== '')
       .map(e => e.replace(/,/g, '.'))
-      
+
     const dataFromTextareaTwo = this.state.textareaTwo
     const arrayFromTextareaTwo = dataFromTextareaTwo
-    .split('\n')
+      .split('\n')
       .filter(e => e !== '')
       .map(e => e.replace(/,/g, '.'))
-      
-      //main logic
-      let arrOne = arrayFromTextareaOne
-      let arrTwo = arrayFromTextareaTwo
-      
-      let arrLenMax = Math.max(arrOne.length, arrTwo.length)
+
+    //main logic
+    let arrOne = arrayFromTextareaOne
+    let arrTwo = arrayFromTextareaTwo
+
+    let arrLenMax = Math.max(arrOne.length, arrTwo.length)
 
     function handleArrays3(arrO, arrT) {
       for (let i = 0; i < arrLenMax; i++) {
@@ -225,7 +226,7 @@ export class MaryDebet extends Component {
               <OverlayTrigger
                 placement="bottom"
                 overlay={
-                  <Tooltip id="tooltip-disabled">KAFKA, DESTROY ALL !</Tooltip>
+                  <Tooltip id="tooltip-disabled">KAFKA, DESTROY ALL!</Tooltip>
                 }
               >
                 <Button onClick={this.destroyAll} block variant="secondary">
@@ -280,6 +281,16 @@ export class MaryDebet extends Component {
               <p className="middlePos">
                 App for finding errors in the account balance
               </p>
+              <h5>
+                <OverlayTrigger
+                  placement="bottom"
+                  overlay={
+                    <Tooltip id="tooltip-disabled">Numbers in the first left column must be the same as the second column numbers from left. If not match, then we see the difference in the columns from right.</Tooltip>
+                  }
+                >
+                  <Badge variant="primary">How it's work</Badge>
+                </OverlayTrigger>
+              </h5>
             </Col>
             <Col />
             <Col />
