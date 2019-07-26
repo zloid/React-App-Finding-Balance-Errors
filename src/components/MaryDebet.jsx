@@ -36,7 +36,22 @@ export class MaryDebet extends Component {
     this.getResult = this.getResult.bind(this)
     this.demo = this.demo.bind(this)
     this.destroyAll = this.destroyAll.bind(this)
+    this.changeTextareaWidthAuto = this.changeTextareaWidthAuto.bind(this)
+    this.setTextareaWidth = this.setTextareaWidth.bind(this)
   }
+
+  setTextareaWidth() {
+    console.log('lengthOfMathNumber > 7')
+    let a = document.querySelector('textarea').offsetWidth
+    console.log('a:', a)
+    ;(() => {
+      document.querySelector('textarea').style.width = 90 + 'px'
+    })()
+  }
+
+//   componentDidMount() {
+//     this.setTextareaWidth()
+//   }
 
   handleTextareaOne(e) {
     this.setState({
@@ -56,8 +71,12 @@ export class MaryDebet extends Component {
         textareaOne: middle,
       })
     }
-  }
-  handleTextareaTwo(e) {
+
+    this.changeTextareaWidthAuto()
+}
+handleTextareaTwo(e) {
+    this.changeTextareaWidthAuto()
+
     this.setState({
       textareaTwo: e.target.value,
     })
@@ -106,6 +125,9 @@ export class MaryDebet extends Component {
   }
 
   getResult() {
+
+    this.changeTextareaWidthAuto()
+
     window.scrollTo(0, 0)
 
     const dataFromTextareaOne = this.state.textareaOne
@@ -161,6 +183,53 @@ export class MaryDebet extends Component {
       textareaThree: arrOne.join('\n'),
       textareaFour: arrTwo.join('\n'),
     })
+
+  }
+
+  changeTextareaWidthAuto() {
+    let arrayFromLeftColumnOne = this.state.textareaOne
+      .split('\n')
+      .map(e => e.replace(/,/g, '.'))
+
+    let arrayFromLeftColumnTwo = this.state.textareaTwo
+      .split('\n')
+      .map(e => e.replace(/,/g, '.'))
+
+    let maxNumFromTwoLeftColumns = Math.max(
+      ...arrayFromLeftColumnOne,
+      ...arrayFromLeftColumnTwo
+    )
+
+    let lengthOfMathNumber = maxNumFromTwoLeftColumns.toString().split('')
+      .length
+
+    console.log(lengthOfMathNumber)
+
+    let allTextAreas = document.querySelectorAll('textarea')
+
+    if (lengthOfMathNumber > 6) {
+      console.log('lengthOfMathNumber > 7')
+      let a = document.querySelector('textarea').offsetWidth
+      console.log('a:', a)
+     
+        ;(() => {
+            // document.querySelector('textarea').style.width = (lengthOfMathNumber) * 13 + 'px'
+            // console.log(document.querySelector('textarea').offsetWidth)
+
+            for (let i = 0, aL = allTextAreas.length; i < aL; i++) {
+                allTextAreas[i].style.width = (lengthOfMathNumber) * 13 + 'px'
+            }
+        })()
+    } else {
+        ;(() => {
+            // document.querySelector('textarea').style.width = 90 + 'px'
+            // console.log(document.querySelector('textarea').offsetWidth)
+            
+            for (let i = 0, aL = allTextAreas.length; i < aL; i++) {
+                allTextAreas[i].style.width = 90 + 'px'
+            }
+        })()
+    }
   }
 
   render() {
@@ -283,9 +352,13 @@ export class MaryDebet extends Component {
               </p>
               <h5>
                 <OverlayTrigger
-                  placement="bottom"
+                  placement="auto"
                   overlay={
-                    <Tooltip id="tooltip-disabled">Numbers in the first left column must be the same as the second column numbers from left. If not match, then we see the difference in the columns from right.</Tooltip>
+                    <Tooltip id="tooltip-disabled">
+                      Numbers in the first left column must be the same as the
+                      second column numbers from left. If not match, then we see
+                      the difference in the columns from right.
+                    </Tooltip>
                   }
                 >
                   <Badge variant="primary">How it's work</Badge>
