@@ -18,6 +18,7 @@ import {
 } from 'react-icons/fa'
 
 import Textarea from 'react-textarea-autosize'
+import './MaryDebet.css'
 
 export class MaryDebet extends Component {
   constructor(props) {
@@ -27,6 +28,7 @@ export class MaryDebet extends Component {
       textareaTwo: '',
       textareaThree: '',
       textareaFour: '',
+      copySuccess: '',
     }
 
     this.handleTextareaOne = this.handleTextareaOne.bind(this)
@@ -37,21 +39,37 @@ export class MaryDebet extends Component {
     this.demo = this.demo.bind(this)
     this.destroyAll = this.destroyAll.bind(this)
     this.changeTextareaWidthAuto = this.changeTextareaWidthAuto.bind(this)
-    this.setTextareaWidth = this.setTextareaWidth.bind(this)
+    // this.setTextareaWidth = this.setTextareaWidth.bind(this)
   }
 
-  setTextareaWidth() {
-    console.log('lengthOfMathNumber > 7')
-    let a = document.querySelector('textarea').offsetWidth
-    console.log('a:', a)
-    ;(() => {
-      document.querySelector('textarea').style.width = 90 + 'px'
-    })()
+  copyToClipboardFour = e => {
+    this.textArea.select()
+    document.execCommand('copy')
+
+    e.target.focus()
+    this.setState({ copySuccess: 'ok!' })
   }
 
-//   componentDidMount() {
-//     this.setTextareaWidth()
-//   }
+  copyToClipboardThree = e => {
+    this.textArea3.select()
+    document.execCommand('copy')
+
+    e.target.focus()
+    this.setState({ copySuccess: 'ok!' })
+  }
+
+  //   setTextareaWidth() {
+  //     console.log('lengthOfMathNumber > 7')
+  //     let a = document.querySelector('textarea').offsetWidth
+  //     console.log('a:', a)
+  //     ;(() => {
+  //       document.querySelector('textarea').style.width = 90 + 'px'
+  //     })()
+  //   }
+
+  //   componentDidMount() {
+  //     this.setTextareaWidth()
+  //   }
 
   handleTextareaOne(e) {
     this.setState({
@@ -71,12 +89,8 @@ export class MaryDebet extends Component {
         textareaOne: middle,
       })
     }
-
-    this.changeTextareaWidthAuto()
-}
-handleTextareaTwo(e) {
-    this.changeTextareaWidthAuto()
-
+  }
+  handleTextareaTwo(e) {
     this.setState({
       textareaTwo: e.target.value,
     })
@@ -125,8 +139,7 @@ handleTextareaTwo(e) {
   }
 
   getResult() {
-
-    this.changeTextareaWidthAuto()
+    // this.changeTextareaWidthAuto()
 
     window.scrollTo(0, 0)
 
@@ -183,7 +196,6 @@ handleTextareaTwo(e) {
       textareaThree: arrOne.join('\n'),
       textareaFour: arrTwo.join('\n'),
     })
-
   }
 
   changeTextareaWidthAuto() {
@@ -211,24 +223,23 @@ handleTextareaTwo(e) {
       console.log('lengthOfMathNumber > 7')
       let a = document.querySelector('textarea').offsetWidth
       console.log('a:', a)
-     
-        ;(() => {
-            // document.querySelector('textarea').style.width = (lengthOfMathNumber) * 13 + 'px'
-            // console.log(document.querySelector('textarea').offsetWidth)
+      ;(() => {
+        // document.querySelector('textarea').style.width = (lengthOfMathNumber) * 13 + 'px'
+        // console.log(document.querySelector('textarea').offsetWidth)
 
-            for (let i = 0, aL = allTextAreas.length; i < aL; i++) {
-                allTextAreas[i].style.width = (lengthOfMathNumber) * 13 + 'px'
-            }
-        })()
+        for (let i = 0, aL = allTextAreas.length; i < aL; i++) {
+          allTextAreas[i].style.width = lengthOfMathNumber * 13 + 'px'
+        }
+      })()
     } else {
-        ;(() => {
-            // document.querySelector('textarea').style.width = 90 + 'px'
-            // console.log(document.querySelector('textarea').offsetWidth)
-            
-            for (let i = 0, aL = allTextAreas.length; i < aL; i++) {
-                allTextAreas[i].style.width = 90 + 'px'
-            }
-        })()
+      ;(() => {
+        // document.querySelector('textarea').style.width = 90 + 'px'
+        // console.log(document.querySelector('textarea').offsetWidth)
+
+        for (let i = 0, aL = allTextAreas.length; i < aL; i++) {
+          allTextAreas[i].style.width = 90 + 'px'
+        }
+      })()
     }
   }
 
@@ -305,6 +316,7 @@ handleTextareaTwo(e) {
 
               <br />
             </Col>
+
             <Col>
               <p>
                 <FaSortNumericUp />
@@ -317,12 +329,25 @@ handleTextareaTwo(e) {
                       .length
                   }
                 </u>
+                &nbsp;
+                {document.queryCommandSupported('copy') && (
+                  <span>
+                    <Button
+                      variant="success"
+                      onClick={this.copyToClipboardThree}
+                    >
+                      copy
+                    </Button>
+                  </span>
+                )}
               </p>
               <Textarea
                 value={this.state.textareaThree}
                 onChange={this.handleTextareaThree}
+                inputRef={textarea => (this.textArea3 = textarea)}
               />
             </Col>
+
             <Col>
               <p>
                 <FaSortNumericUp />
@@ -335,11 +360,23 @@ handleTextareaTwo(e) {
                       .length
                   }
                 </u>
+                &nbsp;
+                {document.queryCommandSupported('copy') && (
+                  <span>
+                    <Button
+                      variant="success"
+                      onClick={this.copyToClipboardFour}
+                    >
+                      copy
+                    </Button>
+                  </span>
+                )}
+                {/* <Badge variant="success"> {this.state.copySuccess}</Badge> */}
               </p>
-
               <Textarea
                 value={this.state.textareaFour}
                 onChange={this.handleTextareaFour}
+                inputRef={textarea => (this.textArea = textarea)}
               />
             </Col>
           </Row>
@@ -369,6 +406,17 @@ handleTextareaTwo(e) {
             <Col />
           </Row>
         </Container>
+
+        {/* // //////////////// */}
+        {/* <div>
+          {document.queryCommandSupported('copy') && (
+            <div>
+              <button onClick={this.copyToClipboard}>Copy</button>
+              {this.state.copySuccess}
+            </div>
+          )}
+        </div> */}
+        {/* ////////////// */}
       </div>
     )
   }

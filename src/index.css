@@ -110,7 +110,8 @@ textarea {
   min-height: 300px;
   /* width: 90px; */
   /* max-width: 90px; */
-  text-align: right;
+  text-align: right; 
+  overflow:hidden;
 }
 
 .sticky {
@@ -300,3 +301,4 @@ bottom: 0;
 } */
 
 /* BLUR end  */
+
