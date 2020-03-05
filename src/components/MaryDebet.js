@@ -20,7 +20,7 @@ import {
 import Textarea from 'react-textarea-autosize'
 import './MaryDebet.css'
 
-export class MaryDebet extends Component {
+class MaryDebet extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -421,3 +421,5 @@ export class MaryDebet extends Component {
     )
   }
 }
+
+export default MaryDebet
