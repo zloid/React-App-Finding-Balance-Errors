@@ -3,8 +3,7 @@ import { render } from 'react-dom'
 import { configureStore } from '@reduxjs/toolkit'
 import { Provider } from 'react-redux'
 
-// import App from 'components/App'
-import App from 'components/AppRTK'
+import AppRTK from 'components/AppRTK'
 
 // import './index.css'
 
@@ -14,7 +13,7 @@ const store = configureStore({
 
 render(
   <Provider store={store}>
-    <App />
+    <AppRTK />
   </Provider>,
   document.getElementById('root')
 )
