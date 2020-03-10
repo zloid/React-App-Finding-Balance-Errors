@@ -1,17 +1,9 @@
 import React, { useState } from 'react'
-// import { Column, Row } from 'styled-grid-system-component'
-// import { Button } from 'styled-button-component'
+import { Container, Row, Col, Button, Badge } from 'react-bootstrap'
 import Textarea from 'react-textarea-autosize'
-// import TextareaCuctom from '../TextareaCuctom'
-import {
-  Container,
-  Row,
-  Col,
-  Button,
-  //   OverlayTrigger,
-  //   Tooltip,
-  Badge,
-} from 'react-bootstrap'
+import TwoLeftTextarea from 'features/processDataFromTextareas/TwoLeftTextarea'
+// < (.|\n)*?<\/ >
+//<Col>(.|\n|\r\n)*?<\/Col>
 
 const Layout = () => {
   const [stateTextarea, setStateTextarea] = useState('test')
@@ -34,11 +26,13 @@ const Layout = () => {
               1_2_
             </Badge>
           </Col>
+
           <Col>
             <Badge pill variant="warning">
               1_3_
             </Badge>
           </Col>
+
           <Col>
             <Badge pill variant="warning">
               1_4_
@@ -46,57 +40,31 @@ const Layout = () => {
           </Col>
         </Row>
         <Row>
-          <Col>
-            <Badge pill variant="warning">
-              2_0_
-            </Badge>
-            <Textarea
-              value={stateTextarea}
-              onChange={e => setStateTextarea(e.target.value)}
-            />
-          </Col>
-          <Col>
-            <Badge pill variant="warning">
-              2_1_
-            </Badge>
-            <Textarea
-              value={stateTextarea}
-              onChange={e => setStateTextarea(e.target.value)}
-            />
-          </Col>
-          <Col>
-            <Badge pill variant="warning">
-              2_2_
-            </Badge>
-            <Button variant="secondary"> {`<<`} Demo</Button>
-            <br />
-            <br />
-            <Button variant="success"> Get Result {`>>`}</Button>
-            <br />
-            <br />
-            <Button variant="secondary"> Delete All</Button>
-          </Col>
-          <Col>
-            <Badge pill variant="warning">
-              2_3_
-            </Badge>
-            <Textarea
-              value={stateTextarea}
-              onChange={e => setStateTextarea(e.target.value)}
-            />
-          </Col>
-          <Col>
-            <Badge pill variant="warning">
-              2_4_
-            </Badge>
-            <Textarea
-              value={stateTextarea}
-              onChange={e => setStateTextarea(e.target.value)}
-            />
-          </Col>
+          {/* ============================== */}
+          <TwoLeftTextarea />
+          <Row>
+            <Col>
+              <Badge pill variant="warning">
+                2_3_
+              </Badge>
+              <Textarea
+                value={stateTextarea}
+                onChange={e => setStateTextarea(e.target.value)}
+              />
+            </Col>
+            <Col>
+              <Badge pill variant="warning">
+                2_4_
+              </Badge>
+              <Textarea
+                value={stateTextarea}
+                onChange={e => setStateTextarea(e.target.value)}
+              />
+            </Col>
+          </Row>
         </Row>
         <Row>
-          <Col p1 bgLight>
+          <Col>
             <Badge pill variant="warning">
               3_0_
             </Badge>
