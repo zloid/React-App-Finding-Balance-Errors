@@ -5,10 +5,10 @@ import Textarea from 'react-textarea-autosize'
 
 // <TAG (.|\n)*?<\/ TAG>
 //<Col>(.|\n|\r\n)*?<\/Col>
-import { testAction } from 'features/processDataFromTextareas/leftTextareaSlice'
-const mapDispatch = { testAction }
+import { getDataFromTextarea } from 'features/processDataFromTextareas/leftTextareaSlice'
+const mapDispatch = { getDataFromTextarea }
 
-const TwoLeftTextarea = ({ testAction }) => {
+const TwoLeftTextarea = ({ getDataFromTextarea }) => {
   const [stateTextareaOne, setStateTextareaOne] = useState('stateTextareaOne')
   const [stateTextareaTwo, setStateTextareaTwo] = useState('stateTextareaTwo')
   return (
@@ -39,7 +39,12 @@ const TwoLeftTextarea = ({ testAction }) => {
           <Button variant="secondary">{`<<`} Demo</Button>
           <br />
           <br />
-          <Button variant="success" onClick={() => testAction(stateTextareaOne)}>
+          <Button
+            variant="success"
+            onClick={() =>
+              getDataFromTextarea({ stateTextareaOne, stateTextareaTwo })
+            }
+          >
             {' '}
             Get Result {`>>`}
           </Button>

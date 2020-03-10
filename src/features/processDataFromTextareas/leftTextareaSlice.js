@@ -1,36 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const initialState = [{dataFromTextareaOne: []}, {dataFromTextareaTwo: []}]
+const initialState = { dataFromTextareaOne: [], dataFromTextareaTwo: [] }
 
 const testSlice = createSlice({
   name: 'test',
   initialState,
   reducers: {
-    testAction(state, action) {
-      state.push(action.payload)
+    getDataFromTextarea(state, action) {
+      const { stateTextareaOne, stateTextareaTwo } = action.payload
+      state.dataFromTextareaOne.push(stateTextareaOne)
+      state.dataFromTextareaTwo.push(stateTextareaTwo)
     },
   },
 })
 
-export const { testAction } = testSlice.actions
+export const { getDataFromTextarea } = testSlice.actions
 
 export default testSlice.reducer
-
-/* import { createSlice } from '@reduxjs/toolkit'
-
-const leftTextareaSlice = createSlice({
-  name: 'firstTwoTextareaLeftside',
-  initialState: ['test'],
-  reducers: {
-    ttt(state) {
-      state.push('demo')
-     
-    },
-  },
-})
-
-export const { ttt } = leftTextareaSlice.actions
-
-
-export default leftTextareaSlice.reducer
- */
