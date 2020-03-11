@@ -12,8 +12,8 @@ const mapState = state => ({
 })
 
 const TwoLeftTextarea = ({ getDataFromTextarea, fromState, fromTwo }) => {
-  const [stateTextareaOne, setStateTextareaOne] = useState('stateTextareaOne')
-  const [stateTextareaTwo, setStateTextareaTwo] = useState('stateTextareaTwo')
+  const [stateTextareaOne, setStateTextareaOne] = useState('           1.1         ')
+  const [stateTextareaTwo, setStateTextareaTwo] = useState('2,2 ')
   return (
     <div>
       1)
