@@ -3,16 +3,23 @@ import { connect } from 'react-redux'
 import { Row, Col, Button, Badge } from 'react-bootstrap'
 import Textarea from 'react-textarea-autosize'
 
-// <TAG (.|\n)*?<\/ TAG>
-//<Col>(.|\n|\r\n)*?<\/Col>
+// <TAG (.|\n)*?<\/ TAG> - regexp for dell all badges
 import { getDataFromTextarea } from 'features/processDataFromTextareas/leftTextareaSlice'
 const mapDispatch = { getDataFromTextarea }
+const mapState = state => ({
+  fromState: state.leftTextareaReducer.dataFromTextareaOne,
+  fromTwo: state.leftTextareaReducer.dataFromTextareaTwo,
+})
 
-const TwoLeftTextarea = ({ getDataFromTextarea }) => {
+const TwoLeftTextarea = ({ getDataFromTextarea, fromState, fromTwo }) => {
   const [stateTextareaOne, setStateTextareaOne] = useState('stateTextareaOne')
   const [stateTextareaTwo, setStateTextareaTwo] = useState('stateTextareaTwo')
   return (
     <div>
+      1)
+      {fromState}
+      <br />
+      2) {fromTwo}
       <Row>
         <Col>
           <Badge pill variant="warning">
@@ -57,4 +64,4 @@ const TwoLeftTextarea = ({ getDataFromTextarea }) => {
   )
 }
 
-export default connect(null, mapDispatch)(TwoLeftTextarea)
+export default connect(mapState, mapDispatch)(TwoLeftTextarea)
