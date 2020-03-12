@@ -10,12 +10,30 @@ const leftTextareaSlice = createSlice({
   initialState,
   reducers: {
     //get 'data1'; 'data2' from textareas ~> [data1]; [data2];
-    getDataFromTextarea(state, action) {
+    /* getDataFromTextarea(state, action) {
       const { stateTextareaOne, stateTextareaTwo } = action.payload
       const arrOne = doGoodArray(stateTextareaOne)
       const arrTwo = doGoodArray(stateTextareaTwo)
       state.dataFromTextareaOne.push(...arrOne)
       state.dataFromTextareaTwo.push(...arrTwo)
+    }, */
+    getDataFromTextarea: {
+      //new payoad after prepare()
+      reducer(state, action) {
+        const { stateTextareaOne, stateTextareaTwo } = action.payload
+        state.dataFromTextareaOne.push(...stateTextareaOne)
+        state.dataFromTextareaTwo.push(...stateTextareaTwo)
+      },
+      //action.payload => next action.payload (transform action.payload after dispatch action, before pass to reducer getDataFromTextarea)
+      //get 'data1'; 'data2' from payload ~> out [data1]; [data2];
+      prepare({ stateTextareaOne, stateTextareaTwo }) {
+        return {
+          payload: {
+            stateTextareaOne: doGoodArray(stateTextareaOne),
+            stateTextareaTwo: doGoodArray(stateTextareaTwo),
+          },
+        }
+      },
     },
   },
 })
