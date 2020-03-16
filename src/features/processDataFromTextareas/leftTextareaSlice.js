@@ -1,28 +1,20 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  dataFromTextareaOne: ['tes1'],
-  dataFromTextareaTwo: ['tes2'],
+  dataFromTextareaOne: [],
+  dataFromTextareaTwo: [],
+  demoDataOne: ['5', '11', '1', '2', '2', '4', '4', '8.5', '9'],
+  demoDataTwo: ['1', '2', '2', '3', '4', '8,5', '8.5'],
 }
 
 const leftTextareaSlice = createSlice({
   name: 'leftTextarea',
   initialState,
   reducers: {
-    //get 'data1'; 'data2' from textareas ~> [data1]; [data2];
-    /* getDataFromTextarea(state, action) {
-      const { stateTextareaOne, stateTextareaTwo } = action.payload
-      const arrOne = doGoodArray(stateTextareaOne)
-      const arrTwo = doGoodArray(stateTextareaTwo)
-      state.dataFromTextareaOne.push(...arrOne)
-      state.dataFromTextareaTwo.push(...arrTwo)
-    }, */
     getDataFromTextarea: {
       //new payoad after prepare()
       reducer(state, action) {
         const { stateTextareaOne, stateTextareaTwo } = action.payload
-        // state.dataFromTextareaOne.push(...stateTextareaOne)
-        // state.dataFromTextareaTwo.push(...stateTextareaTwo)
         state.dataFromTextareaOne = stateTextareaOne
         state.dataFromTextareaTwo = stateTextareaTwo
       },

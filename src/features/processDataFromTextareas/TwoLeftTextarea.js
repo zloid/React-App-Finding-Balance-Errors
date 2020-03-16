@@ -3,27 +3,30 @@ import { connect } from 'react-redux'
 import { Row, Col, Button, Badge } from 'react-bootstrap'
 import Textarea from 'react-textarea-autosize'
 
-// <TAG (.|\n)*?<\/ TAG> - regexp for dell all badges
 import { getDataFromTextarea } from 'features/processDataFromTextareas/leftTextareaSlice'
 
-const selectorOnArray = state => state.leftTextareaReducer.dataFromTextareaOne
-const selectorOnArrayTwo = state =>
-  state.leftTextareaReducer.dataFromTextareaTwo
-
+const mapState = state => ({
+  demoDataOne: state.leftTextareaReducer.demoDataOne,
+  demoDataTwo: state.leftTextareaReducer.demoDataTwo,
+})
 const mapDispatch = { getDataFromTextarea }
 
-// const mapState = state => ({
-//   fromState: selectorOnArray(state),
-//   fromTwo: selectorOnArrayTwo(state),
-// })
+const TwoLeftTextarea = ({ getDataFromTextarea, demoDataOne, demoDataTwo }) => {
+  const [stateTextareaOne, setStateTextareaOne] = useState('1')
+  const [stateTextareaTwo, setStateTextareaTwo] = useState('2')
 
-const TwoLeftTextarea = ({ getDataFromTextarea }) => {
-  const [stateTextareaOne, setStateTextareaOne] = useState(
-    '           1.1         '
-  )
-  const [stateTextareaTwo, setStateTextareaTwo] = useState('2,2 ')
+  function someDemo() {
+    setStateTextareaOne(demoDataOne.join('\n'))
+    setStateTextareaTwo(demoDataTwo.join('\n'))
+  }
+
+  function deleteAll() {
+    setStateTextareaOne('')
+    setStateTextareaTwo('')
+  }
+
   return (
-    <div>
+    <>
       <Row>
         <Col>
           <Badge pill variant="warning">
@@ -47,7 +50,9 @@ const TwoLeftTextarea = ({ getDataFromTextarea }) => {
           <Badge pill variant="warning">
             2_2_
           </Badge>
-          <Button variant="secondary">{`<<`} Demo</Button>
+          <Button onClick={someDemo} variant="secondary">
+            {`<<`} Demo
+          </Button>
           <br />
           <br />
           <Button
@@ -61,11 +66,13 @@ const TwoLeftTextarea = ({ getDataFromTextarea }) => {
           </Button>
           <br />
           <br />
-          <Button variant="secondary"> Delete All</Button>
+          <Button onClick={deleteAll} variant="secondary">
+            Delete All
+          </Button>
         </Col>
       </Row>
-    </div>
+    </>
   )
 }
 
-export default connect(null, mapDispatch)(TwoLeftTextarea)
+export default connect(mapState, mapDispatch)(TwoLeftTextarea)

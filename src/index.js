@@ -19,3 +19,9 @@ render(
   </Provider>,
   document.getElementById('root')
 )
+
+
+// < (.|\n)*?<\/ >
+//<Col>(.|\n|\r\n)*?<\/Col>
+
+// <Badge (.|\n)*?<\/ Badge> - regexp for dell all badges

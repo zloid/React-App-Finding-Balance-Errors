@@ -4,11 +4,8 @@ import { Container, Row, Col, Badge } from 'react-bootstrap'
 import TwoLeftTextarea from 'features/processDataFromTextareas/TwoLeftTextarea'
 import OutputDataTextareas from 'features/processDataFromTextareas/OutputDataTextareas'
 
-// < (.|\n)*?<\/ >
-//<Col>(.|\n|\r\n)*?<\/Col>
 
 const Layout = () => {
-  // const [stateTextarea, setStateTextarea] = useState('test')
   return (
     <>
       <Container>
