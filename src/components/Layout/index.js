@@ -1,12 +1,14 @@
-import React, { useState } from 'react'
-import { Container, Row, Col, Button, Badge } from 'react-bootstrap'
-import Textarea from 'react-textarea-autosize'
+import React from 'react'
+import { Container, Row, Col, Badge } from 'react-bootstrap'
+// import Textarea from 'react-textarea-autosize'
 import TwoLeftTextarea from 'features/processDataFromTextareas/TwoLeftTextarea'
+import OutputDataTextareas from 'features/processDataFromTextareas/OutputDataTextareas'
+
 // < (.|\n)*?<\/ >
 //<Col>(.|\n|\r\n)*?<\/Col>
 
 const Layout = () => {
-  const [stateTextarea, setStateTextarea] = useState('test')
+  // const [stateTextarea, setStateTextarea] = useState('test')
   return (
     <>
       <Container>
@@ -42,26 +44,7 @@ const Layout = () => {
         <Row>
           {/* ============================== */}
           <TwoLeftTextarea />
-          <Row>
-            <Col>
-              <Badge pill variant="warning">
-                2_3_
-              </Badge>
-              <Textarea
-                value={stateTextarea}
-                onChange={e => setStateTextarea(e.target.value)}
-              />
-            </Col>
-            <Col>
-              <Badge pill variant="warning">
-                2_4_
-              </Badge>
-              <Textarea
-                value={stateTextarea}
-                onChange={e => setStateTextarea(e.target.value)}
-              />
-            </Col>
-          </Row>
+          <OutputDataTextareas />
         </Row>
         <Row>
           <Col>

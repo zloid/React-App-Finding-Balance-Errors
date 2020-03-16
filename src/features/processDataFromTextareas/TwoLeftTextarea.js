@@ -5,21 +5,25 @@ import Textarea from 'react-textarea-autosize'
 
 // <TAG (.|\n)*?<\/ TAG> - regexp for dell all badges
 import { getDataFromTextarea } from 'features/processDataFromTextareas/leftTextareaSlice'
-const mapDispatch = { getDataFromTextarea }
-const mapState = state => ({
-  fromState: state.leftTextareaReducer.dataFromTextareaOne,
-  fromTwo: state.leftTextareaReducer.dataFromTextareaTwo,
-})
 
-const TwoLeftTextarea = ({ getDataFromTextarea, fromState, fromTwo }) => {
-  const [stateTextareaOne, setStateTextareaOne] = useState('           1.1         ')
+const selectorOnArray = state => state.leftTextareaReducer.dataFromTextareaOne
+const selectorOnArrayTwo = state =>
+  state.leftTextareaReducer.dataFromTextareaTwo
+
+const mapDispatch = { getDataFromTextarea }
+
+// const mapState = state => ({
+//   fromState: selectorOnArray(state),
+//   fromTwo: selectorOnArrayTwo(state),
+// })
+
+const TwoLeftTextarea = ({ getDataFromTextarea }) => {
+  const [stateTextareaOne, setStateTextareaOne] = useState(
+    '           1.1         '
+  )
   const [stateTextareaTwo, setStateTextareaTwo] = useState('2,2 ')
   return (
     <div>
-      1)
-      {fromState}
-      <br />
-      2) {fromTwo}
       <Row>
         <Col>
           <Badge pill variant="warning">
@@ -64,4 +68,4 @@ const TwoLeftTextarea = ({ getDataFromTextarea, fromState, fromTwo }) => {
   )
 }
 
-export default connect(mapState, mapDispatch)(TwoLeftTextarea)
+export default connect(null, mapDispatch)(TwoLeftTextarea)

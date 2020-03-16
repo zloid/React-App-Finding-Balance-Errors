@@ -21,8 +21,10 @@ const leftTextareaSlice = createSlice({
       //new payoad after prepare()
       reducer(state, action) {
         const { stateTextareaOne, stateTextareaTwo } = action.payload
-        state.dataFromTextareaOne.push(...stateTextareaOne)
-        state.dataFromTextareaTwo.push(...stateTextareaTwo)
+        // state.dataFromTextareaOne.push(...stateTextareaOne)
+        // state.dataFromTextareaTwo.push(...stateTextareaTwo)
+        state.dataFromTextareaOne = stateTextareaOne
+        state.dataFromTextareaTwo = stateTextareaTwo
       },
       //action.payload => next action.payload (transform action.payload after dispatch action, before pass to reducer getDataFromTextarea)
       //get 'data1'; 'data2' from payload ~> out [data1]; [data2];
@@ -37,11 +39,10 @@ const leftTextareaSlice = createSlice({
     },
   },
 })
-
 //in: 'foo\n\n\n\nbar\n777'; out: [foo, bar, 777];
 //in: '$$$'; out [];
 function doGoodArray(stringFromTextarea) {
-  //pass only number & string data
+  //pass only number & string characters
   let mid = stringFromTextarea.split('\n').filter(e => /\w/.test(e) === true)
   return mid.map(e => e.trim())
 }
