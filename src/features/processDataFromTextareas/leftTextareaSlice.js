@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  dataFromTextareaOne: [],
-  dataFromTextareaTwo: [],
+  dataFromTextareaOne: [1],
+  dataFromTextareaTwo: [2],
   demoDataOne: ['5', '11', '1', '2', '2', '4', '4', '8.5', '9'],
   demoDataTwo: ['1', '2', '2', '3', '4', '8,5', '8.5'],
 }
@@ -18,8 +18,8 @@ const leftTextareaSlice = createSlice({
         state.dataFromTextareaOne = stateTextareaOne
         state.dataFromTextareaTwo = stateTextareaTwo
       },
-      //action.payload => next action.payload (transform action.payload after dispatch action, before pass to reducer getDataFromTextarea)
-      //get 'data1'; 'data2' from payload ~> out [data1]; [data2];
+      //in: action.payload; out: next action.payload (transform action.payload after dispatch action, before pass to reducer getDataFromTextarea)
+      //in: 'data1'; 'data2' from payload ~> out: [data1]; [data2];
       prepare({ stateTextareaOne, stateTextareaTwo }) {
         return {
           payload: {
@@ -31,8 +31,8 @@ const leftTextareaSlice = createSlice({
     },
   },
 })
-//in: 'foo\n\n\n\nbar\n777'; out: [foo, bar, 777];
-//in: '$$$'; out [];
+//in: 'foo\n\n\n\nbar\n777'; ~> out: [foo, bar, 777];
+//in: '$$$'; ~> out [];
 function doGoodArray(stringFromTextarea) {
   //pass only number & string characters
   let mid = stringFromTextarea.split('\n').filter(e => /\w/.test(e) === true)

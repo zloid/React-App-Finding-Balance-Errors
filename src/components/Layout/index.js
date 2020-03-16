@@ -1,9 +1,14 @@
 import React from 'react'
-import { Container, Row, Col, Badge } from 'react-bootstrap'
-// import Textarea from 'react-textarea-autosize'
+import {
+  Container,
+  Row,
+  Col,
+  Badge,
+  OverlayTrigger,
+  Tooltip,
+} from 'react-bootstrap'
 import TwoLeftTextarea from 'features/processDataFromTextareas/TwoLeftTextarea'
 import OutputDataTextareas from 'features/processDataFromTextareas/OutputDataTextareas'
-
 
 const Layout = () => {
   return (
@@ -48,7 +53,24 @@ const Layout = () => {
             <Badge pill variant="warning">
               3_0_
             </Badge>
-            footer
+
+            <p className="middlePos">
+              App for finding errors in the account balance
+            </p>
+            <h5>
+              <OverlayTrigger
+                placement="auto"
+                overlay={
+                  <Tooltip id="tooltip-disabled">
+                    Numbers in the first left column must be the same as the
+                    second column numbers from left. If not match, then we see
+                    the difference in the columns from right.
+                  </Tooltip>
+                }
+              >
+                <Badge variant="primary">How it's work</Badge>
+              </OverlayTrigger>
+            </h5>
           </Col>
         </Row>
       </Container>
