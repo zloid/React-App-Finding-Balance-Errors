@@ -3,15 +3,48 @@ import { connect } from 'react-redux'
 import { Row, Col, Button, Badge } from 'react-bootstrap'
 import Textarea from 'react-textarea-autosize'
 
-import { getDataFromTextarea } from 'features/processDataFromTextareas/leftTextareaSlice'
+import {
+  getDataFromTextarea,
+  deleteAllFlagChange,
+  deleteAllFlagFalse,
+} from 'features/processDataFromTextareas/leftTextareaSlice'
 
-const mapState = state => ({
-  demoDataOne: state.leftTextareaReducer.demoDataOne,
-  demoDataTwo: state.leftTextareaReducer.demoDataTwo,
-})
-const mapDispatch = { getDataFromTextarea }
+// const mapState = state => ({
+//   demoDataOne: state.leftTextareaReducer.demoDataOne,
+//   demoDataTwo: state.leftTextareaReducer.demoDataTwo,
+//   returnedDataOne: state.leftTextareaReducer.dataFromTextareaOne,
+//   returnedDataTwo: state.leftTextareaReducer.dataFromTextareaTwo,
+// })
+const mapState = state => {
+  const {
+    demoDataOne,
+    demoDataTwo,
+    dataFromTextareaOne,
+    dataFromTextareaTwo,
+  } = state.leftTextareaReducer
+  return {
+    demoDataOne,
+    demoDataTwo,
+    returnedDataOne: dataFromTextareaOne,
+    returnedDataTwo: dataFromTextareaTwo,
+  }
+}
 
-const TwoLeftTextarea = ({ getDataFromTextarea, demoDataOne, demoDataTwo }) => {
+const mapDispatch = {
+  getDataFromTextarea,
+  deleteAllFlagChange,
+  deleteAllFlagFalse,
+}
+
+const TwoLeftTextarea = ({
+  getDataFromTextarea,
+  demoDataOne,
+  demoDataTwo,
+  deleteAllFlagChange,
+  deleteAllFlagFalse,
+  returnedDataOne,
+  returnedDataTwo,
+}) => {
   const [stateTextareaOne, setStateTextareaOne] = useState('1')
   const [stateTextareaTwo, setStateTextareaTwo] = useState('2')
 
@@ -23,6 +56,19 @@ const TwoLeftTextarea = ({ getDataFromTextarea, demoDataOne, demoDataTwo }) => {
   function deleteAll() {
     setStateTextareaOne('')
     setStateTextareaTwo('')
+    deleteAllFlagChange()
+  }
+
+  function getResult() {
+    if (stateTextareaOne.trim() && stateTextareaTwo.trim()) {
+      deleteAllFlagFalse()
+      getDataFromTextarea({ stateTextareaOne, stateTextareaTwo })
+    }
+  }
+
+  function returnValues() {
+    setStateTextareaOne(returnedDataOne.join('\n'))
+    setStateTextareaTwo(returnedDataTwo.join('\n'))
   }
 
   return (
@@ -55,12 +101,7 @@ const TwoLeftTextarea = ({ getDataFromTextarea, demoDataOne, demoDataTwo }) => {
           </Button>
           <br />
           <br />
-          <Button
-            variant="success"
-            onClick={() =>
-              getDataFromTextarea({ stateTextareaOne, stateTextareaTwo })
-            }
-          >
+          <Button variant="success" onClick={getResult}>
             {' '}
             Get Result {`>>`}
           </Button>
@@ -68,6 +109,11 @@ const TwoLeftTextarea = ({ getDataFromTextarea, demoDataOne, demoDataTwo }) => {
           <br />
           <Button onClick={deleteAll} variant="secondary">
             Delete All
+          </Button>
+          <br />
+          <br />
+          <Button onClick={returnValues} variant="warning">
+            Return
           </Button>
         </Col>
       </Row>

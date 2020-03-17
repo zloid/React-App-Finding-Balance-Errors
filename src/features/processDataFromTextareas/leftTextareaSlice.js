@@ -5,6 +5,7 @@ const initialState = {
   dataFromTextareaTwo: [2],
   demoDataOne: ['5', '11', '1', '2', '2', '4', '4', '8.5', '9'],
   demoDataTwo: ['1', '2', '2', '3', '4', '8,5', '8.5'],
+  deleteAllFlag: false,
 }
 
 const leftTextareaSlice = createSlice({
@@ -29,6 +30,12 @@ const leftTextareaSlice = createSlice({
         }
       },
     },
+    deleteAllFlagChange(state) {
+      state.deleteAllFlag = true      
+    },
+    deleteAllFlagFalse(state) {
+      state.deleteAllFlag = false      
+    },
   },
 })
 //in: 'foo\n\n\n\nbar\n777'; ~> out: [foo, bar, 777];
@@ -39,6 +46,10 @@ function doGoodArray(stringFromTextarea) {
   return mid.map(e => e.trim())
 }
 
-export const { getDataFromTextarea } = leftTextareaSlice.actions
+export const {
+  getDataFromTextarea,
+  deleteAllFlagChange,
+  deleteAllFlagFalse,
+} = leftTextareaSlice.actions
 
 export default leftTextareaSlice.reducer
