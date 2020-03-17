@@ -9,12 +9,6 @@ import {
   deleteAllFlagFalse,
 } from 'features/processDataFromTextareas/leftTextareaSlice'
 
-// const mapState = state => ({
-//   demoDataOne: state.leftTextareaReducer.demoDataOne,
-//   demoDataTwo: state.leftTextareaReducer.demoDataTwo,
-//   returnedDataOne: state.leftTextareaReducer.dataFromTextareaOne,
-//   returnedDataTwo: state.leftTextareaReducer.dataFromTextareaTwo,
-// })
 const mapState = state => {
   const {
     demoDataOne,
@@ -25,8 +19,8 @@ const mapState = state => {
   return {
     demoDataOne,
     demoDataTwo,
-    returnedDataOne: dataFromTextareaOne,
-    returnedDataTwo: dataFromTextareaTwo,
+    dataFromTextareaOne,
+    dataFromTextareaTwo,
   }
 }
 
@@ -42,8 +36,8 @@ const TwoLeftTextarea = ({
   demoDataTwo,
   deleteAllFlagChange,
   deleteAllFlagFalse,
-  returnedDataOne,
-  returnedDataTwo,
+  dataFromTextareaOne,
+  dataFromTextareaTwo,
 }) => {
   const [stateTextareaOne, setStateTextareaOne] = useState('1')
   const [stateTextareaTwo, setStateTextareaTwo] = useState('2')
@@ -67,8 +61,8 @@ const TwoLeftTextarea = ({
   }
 
   function returnValues() {
-    setStateTextareaOne(returnedDataOne.join('\n'))
-    setStateTextareaTwo(returnedDataTwo.join('\n'))
+    setStateTextareaOne(dataFromTextareaOne.join('\n'))
+    setStateTextareaTwo(dataFromTextareaTwo.join('\n'))
   }
 
   return (
