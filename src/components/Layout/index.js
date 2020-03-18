@@ -62,9 +62,9 @@ const Layout = () => {
                 placement="auto"
                 overlay={
                   <Tooltip id="tooltip-disabled">
-                    Numbers in the first left column must be the same as the
-                    second column numbers from left. If not match, then we see
-                    the difference in the columns from right.
+                    Numbers or Words in the first left column must be the same
+                    as the second column numbers (words) from left. If data not
+                    match, then we see the difference in the columns from right.
                   </Tooltip>
                 }
               >

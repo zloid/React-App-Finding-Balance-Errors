@@ -1,6 +1,13 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { Row, Col, Button, Badge } from 'react-bootstrap'
+import {
+  Row,
+  Col,
+  Button,
+  Badge,
+  OverlayTrigger,
+  Tooltip,
+} from 'react-bootstrap'
 import Textarea from 'react-textarea-autosize'
 
 import {
@@ -106,9 +113,27 @@ const TwoLeftTextarea = ({
           </Button>
           <br />
           <br />
-          <Button onClick={returnValues} variant="warning">
-            Return
-          </Button>
+
+          <OverlayTrigger
+            placement="auto"
+            overlay={
+              <Tooltip id="tooltip-disabled">
+                <Row>
+                  <Col sm={5} xs={5}>
+                    {dataFromTextareaOne.join(', ')}
+                  </Col>
+                  <Col sm={1} xs={1}>---</Col>
+                  <Col sm={5} xs={5}>
+                    {dataFromTextareaTwo.join(', ')}
+                  </Col>
+                </Row>
+              </Tooltip>
+            }
+          >
+            <Button onClick={returnValues} variant="warning">
+              Return
+            </Button>
+          </OverlayTrigger>
         </Col>
       </Row>
     </>

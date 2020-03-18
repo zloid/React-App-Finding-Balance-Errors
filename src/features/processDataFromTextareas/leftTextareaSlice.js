@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  dataFromTextareaOne: [1],
-  dataFromTextareaTwo: [2],
+  dataFromTextareaOne: ["1"],
+  dataFromTextareaTwo: ["2"],
   demoDataOne: ['5', '11', '1', '2', '2', '4', '4', '8.5', '9'],
   demoDataTwo: ['1', '2', '2', '3', '4', '8,5', '8.5'],
   deleteAllFlag: false,

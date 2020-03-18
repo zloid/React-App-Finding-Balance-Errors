@@ -2,33 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Row, Col, Badge } from 'react-bootstrap'
 import Textarea from 'react-textarea-autosize'
-
-/* //in: {[4, 99], [1]}; out: '4\n\n99\n'
-const selectDataFromTextareaOne = (state, filter) => {
-  if (!filter) {
-    return ''
-  }
-  let { dataFromTextareaOne, dataFromTextareaTwo } = state.leftTextareaReducer
-  let resultArr = removePairNumbersOnce(
-    dataFromTextareaOne,
-    dataFromTextareaTwo
-  )
-  return resultArr.join('\n')
-}
-//in: {[4, 99], [1]}; out: '4\n\n99\n'
-const selectDataFromTextareaTwo = (state, filter) => {
-  if (!filter) {
-    return ''
-  }
-  let { dataFromTextareaOne, dataFromTextareaTwo } = state.leftTextareaReducer
-  let resultArr = removePairNumbersOnce(
-    dataFromTextareaTwo,
-    dataFromTextareaOne
-  )
-  return resultArr.join('\n')
-}
- */
-
+//selector
 //in: {[4, 99], [1]}; out: '4\n\n99\n'
 const selectFirstList = (numbersOne, numbersTwo, filter) => {
   if (filter) {
@@ -54,21 +28,18 @@ const selectFirstList = (numbersOne, numbersTwo, filter) => {
 }
 
 const mapState = state => {
-  let { dataFromTextareaOne, dataFromTextareaTwo } = state.leftTextareaReducer
-  let filter = state.leftTextareaReducer.deleteAllFlag
-  // let filter = dataFromTextareaOne.length === dataFromTextareaTwo.length && dataFromTextareaTwo.length === 0
-   
-  console.log(filter)
+  let { dataFromTextareaOne, dataFromTextareaTwo, deleteAllFlag } = state.leftTextareaReducer
+  // let filter = state.leftTextareaReducer.deleteAllFlag   
   return {
     outputOne: selectFirstList(
       dataFromTextareaOne,
       dataFromTextareaTwo,
-      filter
+      deleteAllFlag
     ),
     outputTwo: selectFirstList(
       dataFromTextareaTwo,
       dataFromTextareaOne,
-      filter
+      deleteAllFlag
     ),
   }
 }
