@@ -70,6 +70,24 @@ const Layout = () => {
               >
                 <Badge variant="primary">How it's work</Badge>
               </OverlayTrigger>
+              <OverlayTrigger
+                placement="auto"
+                overlay={
+                  <Tooltip id="tooltip-disabled">
+                    Comparison and processing of two data sets;
+                    <br />
+                    2,3 -> 2.3 (each comma become point);
+                    <br />
+                    Return button;
+                    <br />
+                    Delete all button;
+                    <br />
+                    Demo button;
+                  </Tooltip>
+                }
+              >
+                <Badge variant="success">Features</Badge>
+              </OverlayTrigger>
             </h5>
           </Col>
         </Row>

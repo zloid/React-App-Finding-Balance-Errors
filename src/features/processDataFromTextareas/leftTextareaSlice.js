@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  dataFromTextareaOne: ["1"],
-  dataFromTextareaTwo: ["2"],
+  dataFromTextareaOne: ['1'],
+  dataFromTextareaTwo: ['2'],
   demoDataOne: ['5', '11', '1', '2', '2', '4', '4', '8.5', '9'],
   demoDataTwo: ['1', '2', '2', '3', '4', '8,5', '8.5'],
   deleteAllFlag: false,
@@ -38,12 +38,13 @@ const leftTextareaSlice = createSlice({
     },
   },
 })
-//in: 'foo\n\n\n\nbar\n777'; ~> out: [foo, bar, 777];
+//in: ' foo\n\n\n\nbar\n  777  '; ~> out: ['foo', 'bar', '777'];
 //in: '$$$'; ~> out [];
 function doGoodArray(stringFromTextarea) {
   //pass only number & string characters
   let mid = stringFromTextarea.split('\n').filter(e => /\w/.test(e) === true)
-  return mid.map(e => e.trim())
+  //in: ['    3,2', '8,8    ', '3.3']; out: ['3.2', '8,8', 3.3]
+  return mid.map(e => e.trim().replace(/,/g, '.'))
 }
 
 export const {
