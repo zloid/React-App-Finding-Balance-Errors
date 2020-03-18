@@ -17,6 +17,7 @@ const Layout = () => {
         <Row>
           <Col>
             <Badge pill variant="warning">
+              {/* <TAG (.|\n)*?<\/ TAG> */}
               1_0_
             </Badge>
           </Col>
@@ -83,6 +84,8 @@ const Layout = () => {
                     Delete all button;
                     <br />
                     Demo button;
+                    <br />
+                    Copy buttons;
                   </Tooltip>
                 }
               >

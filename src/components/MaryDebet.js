@@ -58,18 +58,6 @@ class MaryDebet extends Component {
     this.setState({ copySuccess: 'ok!' })
   }
 
-  //   setTextareaWidth() {
-  //     console.log('lengthOfMathNumber > 7')
-  //     let a = document.querySelector('textarea').offsetWidth
-  //     console.log('a:', a)
-  //     ;(() => {
-  //       document.querySelector('textarea').style.width = 90 + 'px'
-  //     })()
-  //   }
-
-  //   componentDidMount() {
-  //     this.setTextareaWidth()
-  //   }
 
   handleTextareaOne(e) {
     this.setState({
@@ -406,17 +394,7 @@ class MaryDebet extends Component {
             <Col />
           </Row>
         </Container>
-
-        {/* // //////////////// */}
-        {/* <div>
-          {document.queryCommandSupported('copy') && (
-            <div>
-              <button onClick={this.copyToClipboard}>Copy</button>
-              {this.state.copySuccess}
-            </div>
-          )}
-        </div> */}
-        {/* ////////////// */}
+ 
       </div>
     )
   }

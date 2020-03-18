@@ -7,10 +7,10 @@ import AppRTK from 'components/AppRTK'
 import rootReducer from './reducers'
 
 import './index.css'
-import "bootstrap/dist/css/bootstrap.min.css"
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 const store = configureStore({
-  reducer: rootReducer
+  reducer: rootReducer,
 })
 
 render(
@@ -20,8 +20,5 @@ render(
   document.getElementById('root')
 )
 
-
-// < (.|\n)*?<\/ >
-//<Col>(.|\n|\r\n)*?<\/Col>
-
-// <Badge (.|\n)*?<\/ Badge> - regexp for dell all badges
+//<Badge pill (.|\n)*?</Badge> - correct regexp for dell all badges pill
+// <Badge pill (.|\n)*?<\/ Badge> - regexp for dell all badges
