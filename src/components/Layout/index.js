@@ -14,10 +14,9 @@ const Layout = () => {
   return (
     <>
       <Container>
-        <Row>
+       {/*  <Row>
           <Col>
             <Badge pill variant="warning">
-              {/* <TAG (.|\n)*?<\/ TAG> */}
               1_0_
             </Badge>
           </Col>
@@ -43,7 +42,7 @@ const Layout = () => {
               1_4_
             </Badge>
           </Col>
-        </Row>
+        </Row> */}
         <Row>
           {/* ============================== */}
           <TwoLeftTextarea />

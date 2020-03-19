@@ -24,7 +24,7 @@ const mapState = state => {
     ),
   }
 }
- 
+
 const OutputDataTextareas = ({ outputOne, outputTwo }) => {
   const textInput = useRef(null)
   const textInputTwo = useRef(null)
@@ -43,28 +43,29 @@ const OutputDataTextareas = ({ outputOne, outputTwo }) => {
     <>
       <Row>
         <Col>
-          <Badge pill variant="warning">
-            2_3_
-          </Badge>
-          <u>{selectLenOfInputs(outputOne)}</u>
           <Button variant="success" onClick={copyToClipboard}>
             copy
           </Button>
+          <span className="underlineNumbers">{selectLenOfInputs(outputOne)}</span>
+
           <br />
-          <br />
-          <Textarea value={outputOne} inputRef={textInput} />
+          <Textarea className="sticky" value={outputOne} inputRef={textInput} />
         </Col>
+
         <Col>
-          <Badge pill variant="warning">
-            2_4_
-          </Badge>
-          <u>{selectLenOfInputs(outputTwo)}</u>
           <Button variant="success" onClick={copyToClipboardTwo}>
             copy
           </Button>
+          <span className="underlineNumbers">{selectLenOfInputs(outputTwo)}</span>
+
           <br />
-          <br />
-          <Textarea value={outputTwo} inputRef={textInputTwo} />
+          <Textarea
+            className="sticky"
+            value={outputTwo}
+            inputRef={textInputTwo}
+          >
+            asc
+          </Textarea>
         </Col>
       </Row>
     </>

@@ -62,6 +62,7 @@ const TwoLeftTextarea = ({
   }
 
   function getResult() {
+    window.scrollTo(0, 0)
     if (stateTextareaOne.trim() && stateTextareaTwo.trim()) {
       deleteAllFlagFalse()
       getDataFromTextarea({ stateTextareaOne, stateTextareaTwo })
@@ -69,6 +70,7 @@ const TwoLeftTextarea = ({
   }
 
   function returnValues() {
+    window.scrollTo(0, 0)
     setStateTextareaOne(dataFromTextareaOne.join('\n'))
     setStateTextareaTwo(dataFromTextareaTwo.join('\n'))
   }
@@ -77,68 +79,65 @@ const TwoLeftTextarea = ({
     <>
       <Row>
         <Col>
-          <Badge pill variant="warning">
-            2_0_
-          </Badge>
-          <u>{selectLenOfInputs(stateTextareaOne)}</u>
+          <span className="underlineNumbers">
+            {selectLenOfInputs(stateTextareaOne)}
+          </span>
           <Textarea
             value={stateTextareaOne}
             onChange={e => setStateTextareaOne(e.target.value)}
           />
         </Col>
         <Col>
-          <Badge pill variant="warning">
-            2_1_
-          </Badge>
-          <u>{selectLenOfInputs(stateTextareaTwo)}</u>
+          <span className="underlineNumbers">
+            {selectLenOfInputs(stateTextareaTwo)}
+          </span>
           <Textarea
             value={stateTextareaTwo}
             onChange={e => setStateTextareaTwo(e.target.value)}
           />
         </Col>
         <Col>
-          <Badge pill variant="warning">
-            2_2_
-          </Badge>
-          <Button onClick={someDemo} variant="secondary">
-            {`<<`} Demo
-          </Button>
-          <br />
-          <br />
-          <Button variant="success" onClick={getResult}>
-            {' '}
-            Get Result {`>>`}
-          </Button>
-          <br />
-          <br />
-          <Button onClick={deleteAll} variant="secondary">
-            Delete All
-          </Button>
-          <br />
-          <br />
-
-          <OverlayTrigger
-            placement="auto"
-            overlay={
-              <Tooltip id="tooltip-disabled">
-                <Row>
-                  <Col sm={5} xs={5}>
-                    {dataFromTextareaOne.join(', ')}
-                  </Col>
-                  <Col sm={1} xs={1}>
-                    ---
-                  </Col>
-                  <Col sm={5} xs={5}>
-                    {dataFromTextareaTwo.join(', ')}
-                  </Col>
-                </Row>
-              </Tooltip>
-            }
-          >
-            <Button onClick={returnValues} variant="warning">
-              Return
+          <div className="sticky">
+            <Button onClick={someDemo} variant="secondary">
+              {`<<`} Demo
             </Button>
-          </OverlayTrigger>
+            <br />
+            <br />
+            <Button variant="success" onClick={getResult}>
+              {' '}
+              Get Result {`>>`}
+            </Button>
+            <br />
+            <br />
+            <Button onClick={deleteAll} variant="secondary">
+              Delete All
+            </Button>
+            <br />
+            <br />
+
+            <OverlayTrigger
+              placement="auto"
+              overlay={
+                <Tooltip id="tooltip-disabled">
+                  <Row>
+                    <Col sm={5} xs={5}>
+                      {dataFromTextareaOne.join(', ')}
+                    </Col>
+                    <Col sm={1} xs={1}>
+                      ---
+                    </Col>
+                    <Col sm={5} xs={5}>
+                      {dataFromTextareaTwo.join(', ')}
+                    </Col>
+                  </Row>
+                </Tooltip>
+              }
+            >
+              <Button onClick={returnValues} variant="warning">
+                Return
+              </Button>
+            </OverlayTrigger>
+          </div>
         </Col>
       </Row>
     </>

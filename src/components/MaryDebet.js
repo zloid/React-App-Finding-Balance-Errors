@@ -58,7 +58,6 @@ class MaryDebet extends Component {
     this.setState({ copySuccess: 'ok!' })
   }
 
-
   handleTextareaOne(e) {
     this.setState({
       textareaOne: e.target.value,
@@ -127,10 +126,7 @@ class MaryDebet extends Component {
   }
 
   getResult() {
-    // this.changeTextareaWidthAuto()
-
     window.scrollTo(0, 0)
-
     const dataFromTextareaOne = this.state.textareaOne
     const arrayFromTextareaOne = dataFromTextareaOne
       .split('\n')
@@ -394,7 +390,6 @@ class MaryDebet extends Component {
             <Col />
           </Row>
         </Container>
- 
       </div>
     )
   }
