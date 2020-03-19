@@ -15,6 +15,7 @@ import {
   deleteAllFlagChange,
   deleteAllFlagFalse,
 } from 'features/processDataFromTextareas/leftTextareaSlice'
+import { selectLenOfInputs } from 'features/selectors'
 
 const mapState = state => {
   const {
@@ -79,6 +80,7 @@ const TwoLeftTextarea = ({
           <Badge pill variant="warning">
             2_0_
           </Badge>
+          <u>{selectLenOfInputs(stateTextareaOne)}</u>
           <Textarea
             value={stateTextareaOne}
             onChange={e => setStateTextareaOne(e.target.value)}
@@ -88,6 +90,7 @@ const TwoLeftTextarea = ({
           <Badge pill variant="warning">
             2_1_
           </Badge>
+          <u>{selectLenOfInputs(stateTextareaTwo)}</u>
           <Textarea
             value={stateTextareaTwo}
             onChange={e => setStateTextareaTwo(e.target.value)}
@@ -122,7 +125,9 @@ const TwoLeftTextarea = ({
                   <Col sm={5} xs={5}>
                     {dataFromTextareaOne.join(', ')}
                   </Col>
-                  <Col sm={1} xs={1}>---</Col>
+                  <Col sm={1} xs={1}>
+                    ---
+                  </Col>
                   <Col sm={5} xs={5}>
                     {dataFromTextareaTwo.join(', ')}
                   </Col>

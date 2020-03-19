@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Row, Col, Badge, Button } from 'react-bootstrap'
 import Textarea from 'react-textarea-autosize'
 
-import { selectFirstList } from 'features/selectors'
+import { selectFirstList, selectLenOfInputs } from 'features/selectors'
 
 const mapState = state => {
   let {
@@ -46,6 +46,7 @@ const OutputDataTextareas = ({ outputOne, outputTwo }) => {
           <Badge pill variant="warning">
             2_3_
           </Badge>
+          <u>{selectLenOfInputs(outputOne)}</u>
           <Button variant="success" onClick={copyToClipboard}>
             copy
           </Button>
@@ -57,6 +58,7 @@ const OutputDataTextareas = ({ outputOne, outputTwo }) => {
           <Badge pill variant="warning">
             2_4_
           </Badge>
+          <u>{selectLenOfInputs(outputTwo)}</u>
           <Button variant="success" onClick={copyToClipboardTwo}>
             copy
           </Button>
