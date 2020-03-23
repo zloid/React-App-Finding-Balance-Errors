@@ -199,8 +199,6 @@ class MaryDebet extends Component {
     let lengthOfMathNumber = maxNumFromTwoLeftColumns.toString().split('')
       .length
 
-    console.log(lengthOfMathNumber)
-
     let allTextAreas = document.querySelectorAll('textarea')
 
     if (lengthOfMathNumber > 6) {

@@ -1,6 +1,5 @@
 /* 
-selector selectFirstList role:
-arg: 2 array for compare; ret: specific first array
+role: get 2 array for compare, out specific first array
 arg: {['4', '99'], ['1']}; ret: '4\n\n99\n'
  */
 export const selectFirstList = (firstArray = [], [...secondArray], filter) => {
@@ -17,6 +16,9 @@ export const selectFirstList = (firstArray = [], [...secondArray], filter) => {
   outputArray = outputArray.filter(e => e !== null)
   return outputArray.join('\n')
 }
-//arg: '4\n\n   99\n'; ret: 2
+/*
+role: compute length of elements
+arg: '4\n\n   99\n'; ret: 2
+*/
 export const selectLenOfInputs = stringN =>
   stringN.split('\n').filter(e => e.trim() !== '').length

@@ -1,7 +1,8 @@
 import React, { useRef } from 'react'
 import { connect } from 'react-redux'
-import { Row, Col, Badge, Button } from 'react-bootstrap'
+import { Row, Col, Button } from 'react-bootstrap'
 import Textarea from 'react-textarea-autosize'
+import { FaSortNumericUp } from 'react-icons/fa'
 
 import { selectFirstList, selectLenOfInputs } from 'features/selectors'
 
@@ -43,29 +44,43 @@ const OutputDataTextareas = ({ outputOne, outputTwo }) => {
     <>
       <Row>
         <Col>
-          <Button variant="success" onClick={copyToClipboard}>
-            copy
-          </Button>
-          <span className="underlineNumbers">{selectLenOfInputs(outputOne)}</span>
+          <p>
+            <FaSortNumericUp size={20} />
+          </p>
+          <p>
+            <span className="underlineNumbers">
+              {selectLenOfInputs(outputOne)}
+            </span>
+            <Button variant="success" onClick={copyToClipboard}>
+              copy
+            </Button>
+          </p>
 
-          <br />
-          <Textarea className="sticky" value={outputOne} inputRef={textInput} />
+          <Textarea
+            className="sticky underline-left"
+            value={outputOne}
+            inputRef={textInput}
+          />
         </Col>
 
         <Col>
-          <Button variant="success" onClick={copyToClipboardTwo}>
-            copy
-          </Button>
-          <span className="underlineNumbers">{selectLenOfInputs(outputTwo)}</span>
+          <p>
+            <FaSortNumericUp size={20} />
+          </p>
+          <p>
+            <span className="underlineNumbers">
+              {selectLenOfInputs(outputTwo)}
+            </span>
+            <Button variant="success" onClick={copyToClipboardTwo}>
+              copy
+            </Button>
+          </p>
 
-          <br />
           <Textarea
-            className="sticky"
+            className="sticky underline-left"
             value={outputTwo}
             inputRef={textInputTwo}
-          >
-            asc
-          </Textarea>
+          />
         </Col>
       </Row>
     </>

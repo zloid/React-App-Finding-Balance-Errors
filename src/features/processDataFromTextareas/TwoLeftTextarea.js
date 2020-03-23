@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import {
-  Row,
-  Col,
-  Button,
-  Badge,
-  OverlayTrigger,
-  Tooltip,
-} from 'react-bootstrap'
+import { Row, Col, Button, OverlayTrigger, Tooltip } from 'react-bootstrap'
 import Textarea from 'react-textarea-autosize'
+import {
+  FaSortNumericDown,
+  FaHandPointRight,
+  FaAngleDoubleLeft,
+  FaBomb,
+  FaUndo,
+} from 'react-icons/fa'
 
 import {
   getDataFromTextarea,
@@ -47,8 +47,12 @@ const TwoLeftTextarea = ({
   dataFromTextareaOne,
   dataFromTextareaTwo,
 }) => {
-  const [stateTextareaOne, setStateTextareaOne] = useState('1')
-  const [stateTextareaTwo, setStateTextareaTwo] = useState('2')
+  const [stateTextareaOne, setStateTextareaOne] = useState(
+    dataFromTextareaOne.join('\n')
+  )
+  const [stateTextareaTwo, setStateTextareaTwo] = useState(
+    dataFromTextareaTwo.join('\n')
+  )
 
   function someDemo() {
     setStateTextareaOne(demoDataOne.join('\n'))
@@ -63,10 +67,13 @@ const TwoLeftTextarea = ({
 
   function getResult() {
     window.scrollTo(0, 0)
-    if (stateTextareaOne.trim() && stateTextareaTwo.trim()) {
-      deleteAllFlagFalse()
-      getDataFromTextarea({ stateTextareaOne, stateTextareaTwo })
-    }
+    //do if left and right textarea hollow
+    // if (stateTextareaOne.trim() && stateTextareaTwo.trim()) {
+    //   deleteAllFlagFalse()
+    //   getDataFromTextarea({ stateTextareaOne, stateTextareaTwo })
+    // }
+    deleteAllFlagFalse()
+    getDataFromTextarea({ stateTextareaOne, stateTextareaTwo })
   }
 
   function returnValues() {
@@ -79,38 +86,47 @@ const TwoLeftTextarea = ({
     <>
       <Row>
         <Col>
-          <span className="underlineNumbers">
+          <p>
+            <FaSortNumericDown size={20} />
+          </p>
+
+          <p className="underlineNumbers underline-left">
             {selectLenOfInputs(stateTextareaOne)}
-          </span>
+          </p>
           <Textarea
+            className="sticky textarea-left "
             value={stateTextareaOne}
             onChange={e => setStateTextareaOne(e.target.value)}
           />
         </Col>
         <Col>
-          <span className="underlineNumbers">
+          <p>
+            <FaSortNumericDown size={20} />
+          </p>
+          <p className="underlineNumbers underline-left">
             {selectLenOfInputs(stateTextareaTwo)}
-          </span>
+          </p>
           <Textarea
+            className="sticky textarea-left"
             value={stateTextareaTwo}
             onChange={e => setStateTextareaTwo(e.target.value)}
           />
         </Col>
         <Col>
-          <div className="sticky">
+          <div className="sticky buttons_block">
             <Button onClick={someDemo} variant="secondary">
-              {`<<`} Demo
+              <FaAngleDoubleLeft /> Demo
             </Button>
             <br />
             <br />
             <Button variant="success" onClick={getResult}>
               {' '}
-              Get Result {`>>`}
+              Get Result <FaHandPointRight />
             </Button>
             <br />
             <br />
             <Button onClick={deleteAll} variant="secondary">
-              Delete All
+              Delete All <FaBomb size={24} />
             </Button>
             <br />
             <br />
@@ -134,7 +150,7 @@ const TwoLeftTextarea = ({
               }
             >
               <Button onClick={returnValues} variant="warning">
-                Return
+                <FaUndo /> Return
               </Button>
             </OverlayTrigger>
           </div>

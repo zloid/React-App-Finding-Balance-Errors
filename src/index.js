@@ -6,7 +6,6 @@ import { Provider } from 'react-redux'
 import AppRTK from 'components/AppRTK'
 import rootReducer from './reducers'
 
-import './index.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 const store = configureStore({
