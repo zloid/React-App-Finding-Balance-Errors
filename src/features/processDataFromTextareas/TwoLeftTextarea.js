@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Row, Col, Button, OverlayTrigger, Tooltip } from 'react-bootstrap'
 import Textarea from 'react-textarea-autosize'
@@ -9,7 +10,7 @@ import {
   FaBomb,
   FaUndo,
 } from 'react-icons/fa'
-
+//own
 import {
   getDataFromTextarea,
   deleteAllFlagChange,
@@ -89,7 +90,6 @@ const TwoLeftTextarea = ({
           <p>
             <FaSortNumericDown size={20} />
           </p>
-
           <p className="underlineNumbers underline-left">
             {selectLenOfInputs(stateTextareaOne)}
           </p>
@@ -130,7 +130,6 @@ const TwoLeftTextarea = ({
             </Button>
             <br />
             <br />
-
             <OverlayTrigger
               placement="auto"
               overlay={
@@ -160,4 +159,14 @@ const TwoLeftTextarea = ({
   )
 }
 
+TwoLeftTextarea.propTypes = {
+  getDataFromTextarea: PropTypes.func.isRequired,
+  deleteAllFlagChange: PropTypes.func.isRequired,
+  deleteAllFlagFalse: PropTypes.func.isRequired,
+  selectLenOfInputs: PropTypes.func,
+  demoDataOne: PropTypes.array.isRequired,
+  demoDataTwo: PropTypes.array.isRequired,
+  dataFromTextareaOne: PropTypes.array.isRequired,
+  dataFromTextareaTwo: PropTypes.array.isRequired,
+}
 export default connect(mapState, mapDispatch)(TwoLeftTextarea)

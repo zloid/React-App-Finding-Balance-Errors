@@ -33,7 +33,6 @@ textarea {
   min-height: 300px;
   text-align: letf;
   overflow: hidden !important;
-  /* margin-top: 50px !important; */
 }
 
 .textarea-left {
@@ -60,10 +59,8 @@ textarea {
 .underline-left {
   padding-top: 4px;
 }
-
+/* footer */
 .middlePos {
   font-size: 13px !important;
-  /* padding-right: 130px; */
-  /* margin: 0 auto; */
 }
  

@@ -3,7 +3,7 @@ import { render } from 'react-dom'
 import { configureStore } from '@reduxjs/toolkit'
 import { Provider } from 'react-redux'
 
-import AppRTK from 'components/AppRTK'
+import App from 'components/App'
 import rootReducer from './reducers'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -14,10 +14,8 @@ const store = configureStore({
 
 render(
   <Provider store={store}>
-    <AppRTK />
+    <App />
   </Provider>,
   document.getElementById('root')
 )
-
 //<Badge pill (.|\n)*?</Badge> - correct regexp for dell all badges pill
-// <Badge pill (.|\n)*?<\/ Badge> - regexp for dell all badges
