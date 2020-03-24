@@ -1,9 +1,10 @@
 import React, { useRef } from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Row, Col, Button } from 'react-bootstrap'
 import Textarea from 'react-textarea-autosize'
 import { FaSortNumericUp } from 'react-icons/fa'
-
+//own
 import { selectFirstList, selectLenOfInputs } from 'features/selectors'
 
 const mapState = state => {
@@ -85,6 +86,16 @@ const OutputDataTextareas = ({ outputOne, outputTwo }) => {
       </Row>
     </>
   )
+}
+
+OutputDataTextareas.propTypes = {
+  outputOne: PropTypes.string.isRequired,
+  outputTwo: PropTypes.string.isRequired,
+  selectFirstList: PropTypes.func,
+  selectLenOfInputs: PropTypes.func,
+  dataFromTextareaOne: PropTypes.array,
+  dataFromTextareaTwo: PropTypes.array,
+  deleteAllFlag: PropTypes.bool,
 }
 
 export default connect(mapState, null)(OutputDataTextareas)
