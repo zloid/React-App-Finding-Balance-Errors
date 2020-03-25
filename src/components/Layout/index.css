@@ -31,7 +31,7 @@ body {
 textarea {
   border-radius: 5px;
   min-height: 300px;
-  text-align: letf;
+  text-align: left;
   overflow: hidden !important;
 }
 
@@ -46,7 +46,14 @@ textarea {
 }
 
 .buttons_block {
-  margin: 94px 40px 0px 0px;
+  margin: 94px 30px 0px 0px;
+}
+
+.buttons_block button {
+  display: block;
+  text-align: center;
+  margin: auto;
+  margin-bottom: 20px;
 }
 
 .underlineNumbers {

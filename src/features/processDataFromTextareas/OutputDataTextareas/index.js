@@ -91,11 +91,6 @@ const OutputDataTextareas = ({ outputOne, outputTwo }) => {
 OutputDataTextareas.propTypes = {
   outputOne: PropTypes.string.isRequired,
   outputTwo: PropTypes.string.isRequired,
-  selectFirstList: PropTypes.func,
-  selectLenOfInputs: PropTypes.func,
-  dataFromTextareaOne: PropTypes.array,
-  dataFromTextareaTwo: PropTypes.array,
-  deleteAllFlag: PropTypes.bool,
 }
 
 export default connect(mapState, null)(OutputDataTextareas)

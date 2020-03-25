@@ -117,19 +117,16 @@ const TwoLeftTextarea = ({
             <Button onClick={someDemo} variant="secondary">
               <FaAngleDoubleLeft /> Demo
             </Button>
-            <br />
-            <br />
+             
             <Button variant="success" onClick={getResult}>
               {' '}
               Get Result <FaHandPointRight />
             </Button>
-            <br />
-            <br />
+            
             <Button onClick={deleteAll} variant="secondary">
               Delete All <FaBomb size={24} />
             </Button>
-            <br />
-            <br />
+            
             <OverlayTrigger
               placement="auto"
               overlay={
@@ -161,11 +158,10 @@ const TwoLeftTextarea = ({
 
 TwoLeftTextarea.propTypes = {
   getDataFromTextarea: PropTypes.func.isRequired,
-  deleteAllFlagChange: PropTypes.func.isRequired,
-  deleteAllFlagFalse: PropTypes.func.isRequired,
-  selectLenOfInputs: PropTypes.func,
   demoDataOne: PropTypes.array.isRequired,
   demoDataTwo: PropTypes.array.isRequired,
+  deleteAllFlagChange: PropTypes.func.isRequired,
+  deleteAllFlagFalse: PropTypes.func.isRequired,
   dataFromTextareaOne: PropTypes.array.isRequired,
   dataFromTextareaTwo: PropTypes.array.isRequired,
 }
