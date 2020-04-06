@@ -56,7 +56,6 @@ const OutputDataTextareas = ({ outputOne, outputTwo }) => {
               copy
             </Button>
           </p>
-
           <Textarea
             className="sticky underline-left"
             value={outputOne}

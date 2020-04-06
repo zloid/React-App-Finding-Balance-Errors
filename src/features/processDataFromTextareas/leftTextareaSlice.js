@@ -1,9 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
-
 // own
 import { doGoodArray } from 'features/selectors'
 
-const initialState = {
+export const initialState = {
   dataFromTextareaOne: ['3.555'],
   dataFromTextareaTwo: ['9', '3.555', '789'],
   demoDataOne: ['5', '11', '1', '2', '2', '4', '4', '8.5', '9'],
