@@ -1,12 +1,12 @@
 import React from 'react'
 import { Provider } from 'react-redux'
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
-///////////
 import { configureStore } from '@reduxjs/toolkit'
-import TwoLeftTextarea from 'features/processDataFromTextareas/TwoLeftTextarea'
 //own
 import rootReducer from 'reducers'
+import App from 'components/App'
+// import TwoLeftTextarea from 'features/processDataFromTextareas/TwoLeftTextarea'
 
 function renderWithRedux(
   ui,
@@ -21,14 +21,22 @@ function renderWithRedux(
     store,
   }
 }
- 
-describe('TwoLeftTextarea', () => {
-  it('contain 3.555', () => {
-    const { getByText } = renderWithRedux(<TwoLeftTextarea />)    
-    const leftTextarNmbr = getByText('3.555')
-    expect(leftTextarNmbr.textContent).toEqual('3.555')
+
+describe('App', () => {
+  it('check first left textarea', () => {
+    renderWithRedux(<App />)
+    const leftTextareaOne = screen.getByLabelText('input-first-data-textarea')
+    expect(leftTextareaOne.textContent).toEqual('3.555')
   })
 })
+
+// describe('TwoLeftTextarea', () => {
+//   it('contain 3.555', () => {
+// const { getByText } = renderWithRedux(<TwoLeftTextarea />)
+// const leftTextarNmbr = getByText('3.555')
+// expect(leftTextarNmbr.textContent).toEqual('3.555')
+//   })
+// })
 
 // describe('TwoLeftTextarea', () => {
 //     it('contain 789', () => {

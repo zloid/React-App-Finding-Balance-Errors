@@ -94,6 +94,7 @@ const TwoLeftTextarea = ({
             {selectLenOfInputs(stateTextareaOne)}
           </p>
           <Textarea
+            aria-label="input-first-data-textarea"
             className="sticky textarea-left "
             value={stateTextareaOne}
             onChange={e => setStateTextareaOne(e.target.value)}
