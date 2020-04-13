@@ -1,6 +1,6 @@
 import React from 'react'
 import { Provider } from 'react-redux'
-import { render, screen } from '@testing-library/react'
+import { render, screen, fireEvent } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 import { configureStore } from '@reduxjs/toolkit'
 //own
@@ -23,10 +23,64 @@ function renderWithRedux(
 }
 
 describe('App', () => {
-  it('check first left textarea', () => {
+  it('first left textarea must contain 3.555', () => {
     renderWithRedux(<App />)
     const leftTextareaOne = screen.getByLabelText('input-first-data-textarea')
-    expect(leftTextareaOne.textContent).toEqual('3.555')
+    expect(leftTextareaOne.textContent).toBe('3.555')
+  })
+  it('second left textarea must contain 9\n3.555\n789', () => {
+    renderWithRedux(<App />)
+    const leftTextareaTwo = screen.getByLabelText('input-second-data-textarea')
+    expect(leftTextareaTwo.textContent).toBe('9\n3.555\n789')
+  })
+  it('first right textarea must be empty', () => {
+    renderWithRedux(<App />)
+    const rightTextareaOne = screen.getByLabelText(
+      'output-first-right-textarea'
+    )
+    expect(rightTextareaOne.textContent).toBe('')
+  })
+  it('second right textarea must contain 9\n789', () => {
+    renderWithRedux(<App />)
+    const rightTextareaTwo = screen.getByLabelText(
+      'output-second-right-textarea'
+    )
+    expect(rightTextareaTwo.textContent).toBe('9\n789')
+  })
+  it('click <Demo> button', () => {
+    const { getByText } = renderWithRedux(<App />)
+    const leftTextareaOne = screen.getByLabelText('input-first-data-textarea')
+    const leftTextareaTwo = screen.getByLabelText('input-second-data-textarea')
+    const rightTextareaOne = screen.getByLabelText(
+      'output-first-right-textarea'
+    )
+    const rightTextareaTwo = screen.getByLabelText(
+      'output-second-right-textarea'
+    )
+    const leftClick = { button: 1 }
+    fireEvent.click(getByText(/demo/i), leftClick)
+    expect(leftTextareaOne.textContent).toBe('5\n11\n1\n2\n2\n4\n4\n8.5\n9')
+    expect(leftTextareaTwo.textContent).toBe('1\n2\n2\n3\n4\n8,5\n8.5')
+    expect(rightTextareaOne.textContent).toBe('')
+    expect(rightTextareaTwo.textContent).toBe('9\n789')
+  })
+  it('click <Demo> button, after click <Get Result> button', () => {
+    const { getByText } = renderWithRedux(<App />)
+    const leftTextareaOne = screen.getByLabelText('input-first-data-textarea')
+    const leftTextareaTwo = screen.getByLabelText('input-second-data-textarea')
+    const rightTextareaOne = screen.getByLabelText(
+      'output-first-right-textarea'
+    )
+    const rightTextareaTwo = screen.getByLabelText(
+      'output-second-right-textarea'
+    )
+    const leftClick = { button: 1 }
+    fireEvent.click(getByText(/demo/i), leftClick)
+    fireEvent.click(getByText(/get result/i), leftClick)    
+    expect(leftTextareaOne.textContent).toBe('5\n11\n1\n2\n2\n4\n4\n8.5\n9')
+    expect(leftTextareaTwo.textContent).toBe('1\n2\n2\n3\n4\n8,5\n8.5')
+    expect(rightTextareaOne.textContent).toBe('5\n11\n4\n9')
+    expect(rightTextareaTwo.textContent).toBe('3\n8.5')
   })
 })
 

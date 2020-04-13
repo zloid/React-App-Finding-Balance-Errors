@@ -57,10 +57,11 @@ const OutputDataTextareas = ({ outputOne, outputTwo }) => {
             </Button>
           </p>
           <Textarea
+            aria-label="output-first-right-textarea"
             className="sticky underline-left"
             value={outputOne}
             inputRef={textInput}
-          />
+            />
         </Col>
 
         <Col>
@@ -77,6 +78,7 @@ const OutputDataTextareas = ({ outputOne, outputTwo }) => {
           </p>
 
           <Textarea
+            aria-label="output-second-right-textarea"
             className="sticky underline-left"
             value={outputTwo}
             inputRef={textInputTwo}

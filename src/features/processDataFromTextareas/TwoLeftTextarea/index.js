@@ -98,7 +98,7 @@ const TwoLeftTextarea = ({
             className="sticky textarea-left "
             value={stateTextareaOne}
             onChange={e => setStateTextareaOne(e.target.value)}
-          />
+            />
         </Col>
         <Col>
           <p>
@@ -108,6 +108,7 @@ const TwoLeftTextarea = ({
             {selectLenOfInputs(stateTextareaTwo)}
           </p>
           <Textarea
+            aria-label="input-second-data-textarea"
             className="sticky textarea-left"
             value={stateTextareaTwo}
             onChange={e => setStateTextareaTwo(e.target.value)}
@@ -119,6 +120,8 @@ const TwoLeftTextarea = ({
               <FaAngleDoubleLeft /> Demo
             </Button>
              
+            {/* <Button variant="success" onClick={getResult}>result</Button> */}
+            {/* <u onClick={deleteAll}>result</u> */}
             <Button variant="success" onClick={getResult}>
               {' '}
               Get Result <FaHandPointRight />
