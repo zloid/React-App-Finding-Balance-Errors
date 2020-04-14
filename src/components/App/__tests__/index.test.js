@@ -82,6 +82,43 @@ describe('App', () => {
     expect(rightTextareaOne.textContent).toBe('5\n11\n4\n9')
     expect(rightTextareaTwo.textContent).toBe('3\n8.5')
   })
+  it('click <Delete All> button', () => {
+    const { getByText } = renderWithRedux(<App />)
+    const leftTextareaOne = screen.getByLabelText('input-first-data-textarea')
+    const leftTextareaTwo = screen.getByLabelText('input-second-data-textarea')
+    const rightTextareaOne = screen.getByLabelText(
+      'output-first-right-textarea'
+    )
+    const rightTextareaTwo = screen.getByLabelText(
+      'output-second-right-textarea'
+    )
+    const leftClick = { button: 1 }
+    fireEvent.click(getByText(/delete all/i), leftClick)    
+    expect(leftTextareaOne.textContent).toBe('')
+    expect(leftTextareaTwo.textContent).toBe('')
+    expect(rightTextareaOne.textContent).toBe('')
+    expect(rightTextareaTwo.textContent).toBe('')
+  })
+  it('click <Demo> button, after click <Get Result> button, after click <Delete All> button, after click <Return> button', () => {
+    const { getByText } = renderWithRedux(<App />)
+    const leftTextareaOne = screen.getByLabelText('input-first-data-textarea')
+    const leftTextareaTwo = screen.getByLabelText('input-second-data-textarea')
+    const rightTextareaOne = screen.getByLabelText(
+      'output-first-right-textarea'
+    )
+    const rightTextareaTwo = screen.getByLabelText(
+      'output-second-right-textarea'
+    )
+    const leftClick = { button: 1 }
+    fireEvent.click(getByText(/demo/i), leftClick)
+    fireEvent.click(getByText(/get result/i), leftClick)  
+    fireEvent.click(getByText(/delete all/i), leftClick)
+    fireEvent.click(getByText(/return/i), leftClick)  
+    expect(leftTextareaOne.textContent).toBe('5\n11\n1\n2\n2\n4\n4\n8.5\n9')
+    expect(leftTextareaTwo.textContent).toBe('1\n2\n2\n3\n4\n8.5\n8.5')
+    expect(rightTextareaOne.textContent).toBe('')
+    expect(rightTextareaTwo.textContent).toBe('')
+  })
 })
 
 // describe('TwoLeftTextarea', () => {
