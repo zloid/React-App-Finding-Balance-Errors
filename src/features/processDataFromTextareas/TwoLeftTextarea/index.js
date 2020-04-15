@@ -91,21 +91,25 @@ const TwoLeftTextarea = ({
             <FaSortNumericDown size={20} />
           </p>
           <p className="underlineNumbers underline-left">
-            {selectLenOfInputs(stateTextareaOne)}
+            <span title="length-of-input-first-data-textarea">
+              {selectLenOfInputs(stateTextareaOne)}
+            </span>
           </p>
           <Textarea
             aria-label="input-first-data-textarea"
             className="sticky textarea-left "
             value={stateTextareaOne}
             onChange={e => setStateTextareaOne(e.target.value)}
-            />
+          />
         </Col>
         <Col>
           <p>
             <FaSortNumericDown size={20} />
           </p>
           <p className="underlineNumbers underline-left">
-            {selectLenOfInputs(stateTextareaTwo)}
+            <span title="length-of-input-second-data-textarea">
+              {selectLenOfInputs(stateTextareaTwo)}
+            </span>
           </p>
           <Textarea
             aria-label="input-second-data-textarea"
@@ -119,18 +123,18 @@ const TwoLeftTextarea = ({
             <Button onClick={someDemo} variant="secondary">
               <FaAngleDoubleLeft /> Demo
             </Button>
-             
+
             {/* <Button variant="success" onClick={getResult}>result</Button> */}
             {/* <u onClick={deleteAll}>result</u> */}
             <Button variant="success" onClick={getResult}>
               {' '}
               Get Result <FaHandPointRight />
             </Button>
-            
+
             <Button onClick={deleteAll} variant="secondary">
               Delete All <FaBomb size={24} />
             </Button>
-            
+
             <OverlayTrigger
               placement="auto"
               overlay={

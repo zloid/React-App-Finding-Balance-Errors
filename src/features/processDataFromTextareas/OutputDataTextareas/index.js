@@ -49,7 +49,7 @@ const OutputDataTextareas = ({ outputOne, outputTwo }) => {
             <FaSortNumericUp size={20} />
           </p>
           <p>
-            <span className="underlineNumbers">
+            <span title="length-of-output-first-right-textarea" className="underlineNumbers">
               {selectLenOfInputs(outputOne)}
             </span>
             <Button variant="success" onClick={copyToClipboard}>
@@ -69,7 +69,7 @@ const OutputDataTextareas = ({ outputOne, outputTwo }) => {
             <FaSortNumericUp size={20} />
           </p>
           <p>
-            <span className="underlineNumbers">
+            <span title="length-of-output-second-right-textarea" className="underlineNumbers">
               {selectLenOfInputs(outputTwo)}
             </span>
             <Button variant="success" onClick={copyToClipboardTwo}>
