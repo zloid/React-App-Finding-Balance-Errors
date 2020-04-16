@@ -1,35 +1,7 @@
-/* import React from 'react'
-import { Provider } from 'react-redux'
-import { render, screen, fireEvent } from '@testing-library/react'
-import '@testing-library/jest-dom/extend-expect'
-import { configureStore } from '@reduxjs/toolkit'
-//own
-import rootReducer from 'reducers'
-import App from 'components/App'
-
-function render(
-  ui,
-  {
-    store = configureStore({
-      reducer: rootReducer,
-    }),
-  } = {}
-) {
-  return {
-    ...render(<Provider store={store}>{ui}</Provider>),
-    store,
-  }
-}
- */
-// counter.test.js
 import React from 'react'
-import { createStore } from 'redux'
-// We're using our own custom render function and not RTL's render
-// our custom utils also re-export everything from RTL
-// so we can import fireEvent and screen here as well
-import { render, fireEvent, screen } from './test-utils'
+import { render, fireEvent, screen } from 'components/test-utils'
 import '@testing-library/jest-dom/extend-expect'
-// import Counter from './counter'
+//own
 import App from 'components/App'
 
 describe('App', () => {
