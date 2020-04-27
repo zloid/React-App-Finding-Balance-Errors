@@ -1,4 +1,4 @@
-# App for finding errors in the account balance
+# React app for finding errors in the account balance
 
 ## How it's work
 
@@ -14,6 +14,7 @@ right.
 
 ## Features
 
+- React + Redux (RTK)
 - Comparison and processing of two data sets
 - 2,3 -> 2.3 (each comma become point)
 - Return button
