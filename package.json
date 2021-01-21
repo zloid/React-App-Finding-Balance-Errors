@@ -1,8 +1,8 @@
 {
   "name": "react-app-finding-balance-errors",
   "version": "0.33.3",
-  "private": true,
-  "homepage": "https://github.com/zloid/React-App-Finding-Balance-Errors",
+  "private": true,  
+  "homepage": "https://zloid.github.io/React-App-Finding-Balance-Errors",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
