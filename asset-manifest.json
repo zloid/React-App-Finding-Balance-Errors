@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/zloid/React-App-Finding-Balance-Errors/static/css/main.c5ae176c.chunk.css",
-    "main.js": "/zloid/React-App-Finding-Balance-Errors/static/js/main.2e35464b.chunk.js",
-    "main.js.map": "/zloid/React-App-Finding-Balance-Errors/static/js/main.2e35464b.chunk.js.map",
+    "main.js": "/zloid/React-App-Finding-Balance-Errors/static/js/main.32a0089c.chunk.js",
+    "main.js.map": "/zloid/React-App-Finding-Balance-Errors/static/js/main.32a0089c.chunk.js.map",
     "runtime~main.js": "/zloid/React-App-Finding-Balance-Errors/static/js/runtime~main.6af360e0.js",
     "runtime~main.js.map": "/zloid/React-App-Finding-Balance-Errors/static/js/runtime~main.6af360e0.js.map",
-    "static/css/2.266e55a5.chunk.css": "/zloid/React-App-Finding-Balance-Errors/static/css/2.266e55a5.chunk.css",
-    "static/js/2.f19f910d.chunk.js": "/zloid/React-App-Finding-Balance-Errors/static/js/2.f19f910d.chunk.js",
-    "static/js/2.f19f910d.chunk.js.map": "/zloid/React-App-Finding-Balance-Errors/static/js/2.f19f910d.chunk.js.map",
+    "static/css/2.c724ebb2.chunk.css": "/zloid/React-App-Finding-Balance-Errors/static/css/2.c724ebb2.chunk.css",
+    "static/js/2.6dae1551.chunk.js": "/zloid/React-App-Finding-Balance-Errors/static/js/2.6dae1551.chunk.js",
+    "static/js/2.6dae1551.chunk.js.map": "/zloid/React-App-Finding-Balance-Errors/static/js/2.6dae1551.chunk.js.map",
     "index.html": "/zloid/React-App-Finding-Balance-Errors/index.html",
-    "precache-manifest.c827ec8b6e672f4640e34653d3e8566d.js": "/zloid/React-App-Finding-Balance-Errors/precache-manifest.c827ec8b6e672f4640e34653d3e8566d.js",
+    "precache-manifest.fcee6360ccb87f7d44d7d4e82dd71655.js": "/zloid/React-App-Finding-Balance-Errors/precache-manifest.fcee6360ccb87f7d44d7d4e82dd71655.js",
     "service-worker.js": "/zloid/React-App-Finding-Balance-Errors/service-worker.js",
-    "static/css/2.266e55a5.chunk.css.map": "/zloid/React-App-Finding-Balance-Errors/static/css/2.266e55a5.chunk.css.map",
+    "static/css/2.c724ebb2.chunk.css.map": "/zloid/React-App-Finding-Balance-Errors/static/css/2.c724ebb2.chunk.css.map",
     "static/css/main.c5ae176c.chunk.css.map": "/zloid/React-App-Finding-Balance-Errors/static/css/main.c5ae176c.chunk.css.map"
   }
 }

@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/zloid/React-App-Finding-Balance-Errors/precache-manifest.c827ec8b6e672f4640e34653d3e8566d.js"
+  "/zloid/React-App-Finding-Balance-Errors/precache-manifest.fcee6360ccb87f7d44d7d4e82dd71655.js"
 );
 
 self.addEventListener('message', (event) => {
