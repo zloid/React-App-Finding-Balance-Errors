@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.c5ae176c.chunk.css",
-    "main.js": "/static/js/main.e5ab7247.chunk.js",
-    "main.js.map": "/static/js/main.e5ab7247.chunk.js.map",
-    "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
-    "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
-    "static/css/2.266e55a5.chunk.css": "/static/css/2.266e55a5.chunk.css",
-    "static/js/2.5ff891b6.chunk.js": "/static/js/2.5ff891b6.chunk.js",
-    "static/js/2.5ff891b6.chunk.js.map": "/static/js/2.5ff891b6.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.c72cafcb94ee2aeaae58bf9d5a16c529.js": "/precache-manifest.c72cafcb94ee2aeaae58bf9d5a16c529.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/2.266e55a5.chunk.css.map": "/static/css/2.266e55a5.chunk.css.map",
-    "static/css/main.c5ae176c.chunk.css.map": "/static/css/main.c5ae176c.chunk.css.map"
+    "main.css": "/zloid/React-App-Finding-Balance-Errors/static/css/main.c5ae176c.chunk.css",
+    "main.js": "/zloid/React-App-Finding-Balance-Errors/static/js/main.2e35464b.chunk.js",
+    "main.js.map": "/zloid/React-App-Finding-Balance-Errors/static/js/main.2e35464b.chunk.js.map",
+    "runtime~main.js": "/zloid/React-App-Finding-Balance-Errors/static/js/runtime~main.6af360e0.js",
+    "runtime~main.js.map": "/zloid/React-App-Finding-Balance-Errors/static/js/runtime~main.6af360e0.js.map",
+    "static/css/2.266e55a5.chunk.css": "/zloid/React-App-Finding-Balance-Errors/static/css/2.266e55a5.chunk.css",
+    "static/js/2.f19f910d.chunk.js": "/zloid/React-App-Finding-Balance-Errors/static/js/2.f19f910d.chunk.js",
+    "static/js/2.f19f910d.chunk.js.map": "/zloid/React-App-Finding-Balance-Errors/static/js/2.f19f910d.chunk.js.map",
+    "index.html": "/zloid/React-App-Finding-Balance-Errors/index.html",
+    "precache-manifest.c827ec8b6e672f4640e34653d3e8566d.js": "/zloid/React-App-Finding-Balance-Errors/precache-manifest.c827ec8b6e672f4640e34653d3e8566d.js",
+    "service-worker.js": "/zloid/React-App-Finding-Balance-Errors/service-worker.js",
+    "static/css/2.266e55a5.chunk.css.map": "/zloid/React-App-Finding-Balance-Errors/static/css/2.266e55a5.chunk.css.map",
+    "static/css/main.c5ae176c.chunk.css.map": "/zloid/React-App-Finding-Balance-Errors/static/css/main.c5ae176c.chunk.css.map"
   }
 }
